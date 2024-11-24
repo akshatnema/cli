@@ -136,6 +136,10 @@ jobs:
             console.log(`Updated action.yml with version ${{ steps.get-version.outputs.version }}`);
 
       - if: steps.packagejson.outputs.exists == 'true'
+        name: Check git status and output the changes
+        run: git status
+
+      - if: steps.packagejson.outputs.exists == 'true'
         name: Publish to any of NPM, Github, and Docker Hub
         #this step has 2 goals, it is either identifying that there is changeset file created and then this action creates a PR with version bump that will trigger release - or if it sees there is no changeset, and there are versions changes in package.json files, it publish new versions to NPM is they are not there yet
         uses: changesets/action@v1
