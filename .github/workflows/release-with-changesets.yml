@@ -126,8 +126,8 @@ jobs:
             const fs = require('fs');
             const path = require('path');
 
-            const templatePath = path.resolve('./', '../../', 'action-template.yml');
-            const outputPath = path.resolve('./', '../../', 'action.yml');
+            const templatePath = path.resolve('./', 'action-template.yml');
+            const outputPath = path.resolve('./', 'action.yml');
 
             const templateContent = fs.readFileSync(templatePath, 'utf8');
             const updatedContent = templateContent.replace(/\${ version }/g, '${{ steps.get-version.outputs.version }}');
