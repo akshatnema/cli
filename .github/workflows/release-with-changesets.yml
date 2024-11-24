@@ -75,7 +75,6 @@ jobs:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_CI_FAIL_NOTIFY }}
 
   release:
-    needs: [test-nodejs]
     name: Publish to any of NPM, GitHub, or Docker Hub
     runs-on: ubuntu-latest
     steps:
