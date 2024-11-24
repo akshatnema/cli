@@ -137,7 +137,7 @@ jobs:
 
       - if: steps.packagejson.outputs.exists == 'true'
         name: Check git status and output the changes
-        run: git status
+        run: git status -sb
 
       - if: steps.packagejson.outputs.exists == 'true'
         name: Publish to any of NPM, Github, and Docker Hub
