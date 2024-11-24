@@ -113,6 +113,12 @@ jobs:
         id: get-version
         with:
           version: npx -p @changesets/cli@2.27.7 changeset version
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GIT_AUTHOR_NAME: asyncapi-bot
+          GIT_AUTHOR_EMAIL: info@asyncapi.io
+          GIT_COMMITTER_NAME: asyncapi-bot
+          GIT_COMMITTER_EMAIL: info@asyncapi.io
       - if: steps.packagejson.outputs.exists == 'true'
         name: Update version inside action.yml
         uses: actions/github-script@v6
