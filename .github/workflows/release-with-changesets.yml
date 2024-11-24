@@ -136,8 +136,8 @@ jobs:
             console.log(`Updated action.yml with version ${{ steps.get-version.outputs.version }}`);
 
       - if: steps.packagejson.outputs.exists == 'true'
-        name: Check git status and output the changes
-        run: git status -sb
+        name: View changes inside action.yml and package.json file
+        run: git diff
 
       - if: steps.packagejson.outputs.exists == 'true'
         name: Publish to any of NPM, Github, and Docker Hub
