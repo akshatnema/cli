@@ -127,8 +127,8 @@ jobs:
             const fs = require('fs');
             const path = require('path');
 
-            const templatePath = path.resolve(__dirname, '../../', 'action-template.yml');
-            const outputPath = path.resolve(__dirname, '../../', 'action.yml');
+            const templatePath = path.resolve('./', '../../', 'action-template.yml');
+            const outputPath = path.resolve('./', '../../', 'action.yml');
 
             const updatedContent = templateContent.replace(/\${ version }/g, '${{ steps.get-version.outputs.version }}');
             fs.writeFileSync(outputPath, updatedContent, 'utf8');
