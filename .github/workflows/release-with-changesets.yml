@@ -129,7 +129,9 @@ jobs:
             const templatePath = path.resolve('./', '../../', 'action-template.yml');
             const outputPath = path.resolve('./', '../../', 'action.yml');
 
+            const templateContent = fs.readFileSync(templatePath, 'utf8');
             const updatedContent = templateContent.replace(/\${ version }/g, '${{ steps.get-version.outputs.version }}');
+
             fs.writeFileSync(outputPath, updatedContent, 'utf8');
             console.log(`Updated action.yml with version ${{ steps.get-version.outputs.version }}`);
 
