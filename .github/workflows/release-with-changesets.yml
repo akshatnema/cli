@@ -147,9 +147,10 @@ jobs:
         run: git diff
 
       - if: steps.packagejson.outputs.exists == 'true'
-        name: Commit changes
+        name: Commit changes of action.yml
         run: |
           git commit -am "chore(release): release and bump versions of github action docker"
+          git push
 
       - if: steps.packagejson.outputs.exists == 'true'
         name: Publish to any of NPM, Github, and Docker Hub
