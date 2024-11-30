@@ -150,7 +150,7 @@ jobs:
         name: Commit changes of action.yml
         run: |
           git commit -am "chore(release): release and bump versions of github action docker"
-          git push
+          git push --set-upstream origin changeset-release/beta
 
       - if: steps.packagejson.outputs.exists == 'true'
         name: Publish to any of NPM, Github, and Docker Hub
