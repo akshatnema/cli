@@ -1,0 +1,5 @@
+---
+'@asyncapi/cli': patch
+---
+
+hrllo
