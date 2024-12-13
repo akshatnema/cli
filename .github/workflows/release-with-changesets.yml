@@ -111,6 +111,8 @@ jobs:
         uses: changesets/action@v1
         with:
           version: npx -p @changesets/cli@2.27.7 changeset version
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
       - if: steps.packagejson.outputs.exists == 'true'
         name: Get version from package.json
