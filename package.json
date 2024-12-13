@@ -170,7 +170,8 @@
     "createhookinit": "oclif generate hook inithook --event=init",
     "action:docker:build": "docker build -f github-action/Dockerfile -t asyncapi/github-action-for-cli:latest .",
     "action:bump:version": "npm --no-git-tag-version --allow-same-version version $VERSION",
-    "action:test": "cd github-action && make test"
+    "action:test": "cd github-action && make test",
+    "bump:github-action": "cd github-action/lib/ && node bump-action-version.js"
   },
   "types": "lib/index.d.ts"
 }
