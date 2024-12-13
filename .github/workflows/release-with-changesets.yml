@@ -113,7 +113,7 @@ jobs:
         uses: changesets/action@v1
         id: release
         with:
-          version: npm run update:action
+          version: npm run update:version
           commit: "chore(release): release and bump versions of packages"
           title: "chore(release): release and bump versions of packages"
           publish: npx -p @changesets/cli@2.27.7 changeset publish
