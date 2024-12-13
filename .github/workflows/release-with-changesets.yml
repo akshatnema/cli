@@ -115,11 +115,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
       - if: steps.packagejson.outputs.exists == 'true'
-        name: print git diff to check if there are changes
-        id: git-diff
-        run: git diff
-
-      - if: steps.packagejson.outputs.exists == 'true'
         name: Get version from package.json
         id: get-version
         run: echo ::set-output name=version::$(node -p "require('./package.json').version")
@@ -140,6 +135,11 @@ jobs:
 
             fs.writeFileSync(outputPath, updatedContent, 'utf8');
             console.log(`Updated action.yml with version ${{ steps.get-version.outputs.version }}`);
+
+      - if: steps.packagejson.outputs.exists == 'true'
+        name: print git diff to check if there are changes
+        id: git-diff
+        run: git diff
 
       - if: steps.packagejson.outputs.exists == 'true'
         name: Add changes to staging
